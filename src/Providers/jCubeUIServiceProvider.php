@@ -22,7 +22,7 @@ class jCubeUIServiceProvider extends ServiceProvider
         $this->registerComponents();
 
         view()->share([
-            'global_components_path' => dirname(__DIR__) . '/resources/views/components/',
+            'global_components_path' => dirname(__DIR__) . '/Resources/views/components/',
         ]);
 
         Paginator::useBootstrap();
@@ -31,7 +31,7 @@ class jCubeUIServiceProvider extends ServiceProvider
     protected function registerLoads()
     {
         $this->loadMigrationsFrom(dirname(dirname(__DIR__)) . '/database/migrations');
-        $this->loadViewsFrom(dirname(__DIR__) . '/resources/views', 'ui');
+        $this->loadViewsFrom(dirname(__DIR__) . '/Resources/views', 'ui');
     }
 
     protected function registerComponents()
@@ -47,6 +47,6 @@ class jCubeUIServiceProvider extends ServiceProvider
             TableItem::class,
             DataTable::class,
         ]);
-        Blade::anonymousComponentPath(dirname(__DIR__) . '/resources/views/components');
+        Blade::anonymousComponentPath(dirname(__DIR__) . '/Resources/views/components');
     }
 }
