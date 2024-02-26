@@ -1,3 +1,4 @@
+// just a test
 export default {
     input: [
         'vendor/jcube/ui/src/resources/scss/bootstrap.scss',
