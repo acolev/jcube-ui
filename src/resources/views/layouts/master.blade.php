@@ -1,6 +1,6 @@
 <!doctype html>
 @include('ui::layouts.part.settings', [
-    'layout' => $variant ?? 'vertical',
+    'layout' => $layout ?? 'vertical',
     'topbarColor' => $topbarColor ?? 'light',
     'sidebarColor' => $sidebarColor ?? 'dark',
     'sidebarSize' => $sidebarSize ?? 'lg',
