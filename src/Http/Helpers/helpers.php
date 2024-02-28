@@ -85,3 +85,25 @@ function menuActive($routeName, $type = null, $param = null)
         return $class;
     }
 }
+
+function createMenuItem($id, $parentId, $name, $icon, $link = null, $active = null, $access = null)
+{
+    $menuItem = [
+        'id' => $id,
+        'parent_id' => $parentId,
+        'name' => $name,
+        'link' => array_filter([
+            'type' => $link ? 'link' : 'title',
+            'name' => $link,
+            'active' => $active ?: $link,
+            'open' => $active ?: $link,
+        ]),
+        'icon' => $icon,
+    ];
+
+    if ($access !== null) {
+        $menuItem['access'] = strpos($access, ':') === 0 ? $name.$access : $access;
+    }
+
+    return $menuItem;
+}

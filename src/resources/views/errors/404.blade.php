@@ -1,4 +1,4 @@
-@extends('ui::layouts.empty')
+@extends('ui::layouts.auth')
 
 @section('content')
     <div class="row justify-content-center">
