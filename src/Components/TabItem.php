@@ -15,6 +15,6 @@ class TabItem extends Component
 
   public function render()
   {
-    return view('ui::components::tabs.item');
+    return view('ui::components.tabs.item');
   }
 }

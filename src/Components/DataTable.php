@@ -50,7 +50,7 @@ class DataTable extends Component
     $this->hover = $hover;
     $this->card = $card;
 
-    view()->composer('ui::components::table.item', function ($view) {
+    view()->composer('ui::components.table.item', function ($view) {
       $view->with([
         'fields' => $this->fields,
       ]);

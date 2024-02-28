@@ -17,6 +17,6 @@ class ColumnItem extends Component
 
   public function render()
   {
-    return view('ui::components::columns.item');
+    return view('ui::components.columns.item');
   }
 }
