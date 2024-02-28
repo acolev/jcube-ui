@@ -21,7 +21,7 @@ class ColumnsOrTabs extends Component
     $this->id = genTrx(4, 'qwertyuiopasdfghjklxcvbnm');
 
 
-    view()->composer('ui::components::columns.item', function ($view) {
+    view()->composer('ui::components.columns.item', function ($view) {
       $view->with([
         'columns' => $this->columns,
         'active' => $this->active,
