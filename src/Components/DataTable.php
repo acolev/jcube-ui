@@ -19,7 +19,7 @@ class DataTable extends Component
   public bool $stripedColumns;
   public bool $hover;
   public bool $card;
-  
+
   public function __construct(
     $perPage = 25,
     $page = 1,
@@ -49,16 +49,16 @@ class DataTable extends Component
     $this->stripedColumns = $stripedColumns;
     $this->hover = $hover;
     $this->card = $card;
-    
-    view()->composer('components::table.item', function ($view) {
+
+    view()->composer('ui::components::table.item', function ($view) {
       $view->with([
         'fields' => $this->fields,
       ]);
     });
   }
-  
+
   public function render()
   {
-    return view('components::table.data');
+    return view('ui::components::table.data');
   }
 }

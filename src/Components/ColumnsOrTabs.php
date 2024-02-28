@@ -11,7 +11,7 @@ class ColumnsOrTabs extends Component
   public mixed $active;
   public mixed $cols;
   public mixed $max;
-  
+
   public function __construct(mixed $active, int $max = 2, int $cols = 1)
   {
     $this->columns = \uniqid('columns');
@@ -19,9 +19,9 @@ class ColumnsOrTabs extends Component
     $this->cols = $cols;
     $this->max = $max;
     $this->id = genTrx(4, 'qwertyuiopasdfghjklxcvbnm');
-    
-    
-    view()->composer('components::columns.item', function ($view) {
+
+
+    view()->composer('ui::components::columns.item', function ($view) {
       $view->with([
         'columns' => $this->columns,
         'active' => $this->active,
@@ -29,9 +29,9 @@ class ColumnsOrTabs extends Component
       ]);
     });
   }
-  
+
   public function render()
   {
-    return view('components::columns.index');
+    return view('ui::components::columns.index');
   }
 }
