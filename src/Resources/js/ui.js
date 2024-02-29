@@ -5,9 +5,10 @@ $(function () {
 
             break;
         default:
+            const scrollbar = document.getElementById('scrollbar')
             if (typeof SimpleBar === 'function') {
-                document.getElementById("scrollbar").classList.add("h-100")
-                new SimpleBar(document.getElementById('scrollbar'));
+                scrollbar.classList.add("h-100");
+                new SimpleBar(scrollbar);
             }
             break;
     }
@@ -55,7 +56,7 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
 
-function fillForm(el, cb) {
+export function fillForm(el, cb) {
     const target = el.dataset.target;
     const objId = document.querySelector(el.dataset.form);
     const obj = JSON.parse(objId.innerText);
@@ -103,3 +104,7 @@ function genTrx(length = 12, characters = 'ABCDEFGHJKMNOPQRSTUVWXYZ123456789') {
     return Array.from({length}, () => characters.charAt(Math.floor(Math.random() * characters.length))).join('');
 }
 
+window.topFunction = topFunction
+window.fillForm = fillForm
+window.changeTheme = changeTheme
+window.genTrx = genTrx

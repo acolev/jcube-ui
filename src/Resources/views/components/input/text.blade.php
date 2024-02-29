@@ -1,7 +1,7 @@
 @props([
 	"name" => '',
 	"value" => '',
-	"type" => 'string',
+	"attrType" => 'text',
 	"label" => "",
 	"placeholder" => "",
 	"required" => false,
@@ -15,5 +15,5 @@
 @if($label)
     <label class="@if(!!$required) required @endif" for="{{ $id }}">{!! __($label) !!}</label>
 @endif
-<input @class(['form-control',$class]) type="text" name="{{ $name }}" @required(!!$required) value="{{ $value }}"
+<input @class(['form-control',$class]) type="{{ $attrType }}" name="{{ $name }}" @required(!!$required) value="{{ $value }}"
        placeholder="{{ $placeholder }}" id="{{ $id }}" {{ $attributes }}>
