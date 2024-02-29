@@ -8,6 +8,7 @@
 	"btn" => false,
 	"inline" => false,
 	"variants" => [],
+	"class" => '',
 	"id" => genTrx(6, 'qwertyuiopasdfghjklzxcvbnm'),
 ])
 
@@ -28,6 +29,7 @@
                      :required="$required"
                      :variants="$variants"
                      :id="$id"
+                     :class="$class"
                      :attributes="$attributes"/>
 @if($notExists)
   <div class="text-danger p-2">

@@ -5,6 +5,9 @@ export default {
         'vendor/jcube/ui/src/resources/scss/icons.scss',
         'vendor/jcube/ui/src/resources/scss/app.scss',
 
+        'vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.css',
+        'vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.js',
+
         'vendor/jcube/ui/src/resources/js/ui.js',
         'vendor/jcube/ui/src/resources/js/plugins/lord-icon-2.1.0.js',
     ],

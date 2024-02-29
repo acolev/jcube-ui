@@ -21,14 +21,16 @@
             <div class="d-flex align-items-center">
                 <div class="me-1 header-item d-none d-sm-flex">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
-                            data-toggle="fullscreen">
+                            data-toggle="fullscreen"
+                            title="{{ __('Full screen') }}" data-bs-toggle="tooltip">
                         <i class='bx bx-fullscreen fs-22'></i>
                     </button>
                 </div>
 
                 <div class="me-1 header-item d-none d-sm-flex">
                     <button type="button"
-                            class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
+                            class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode"
+                            title="{{ __('Dark mode') }}" data-bs-toggle="tooltip">
                         <i class='bx bx-moon fs-22'></i>
                     </button>
                 </div>

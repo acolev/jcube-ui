@@ -24,11 +24,11 @@
          :variants="$variants" {{ $attributes }} />
 
 @pushonce('style-lib')
-  <link rel="stylesheet" type="text/css" href="{{ asset('admin_assets/libs/multi.js/multi.min.css') }}"/>
+    @vite('vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.css')
 @endpushonce
 
 @pushonce('script-lib')
-  <script src="{{ asset('admin_assets/libs/multi.js/multi.min.js') }}"></script>
+    @vite('vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.js')
 @endpushonce
 
 @push('script')
