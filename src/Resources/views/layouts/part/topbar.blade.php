@@ -14,7 +14,7 @@
                     </span>
                 </button>
                 <div class="d-flex align-items-center ms-3">
-                    @yield('topbar-left')
+                    @stack('topbar-left')
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
                         <i class='bx bx-moon fs-22'></i>
                     </button>
                 </div>
-                @yield('topbar-right')
+                @stack('topbar-right')
             </div>
         </div>
     </div>
