@@ -1,15 +1,15 @@
 // just a test
 export default {
     input: [
-        'vendor/jcube/ui/src/resources/scss/bootstrap.scss',
-        'vendor/jcube/ui/src/resources/scss/icons.scss',
-        'vendor/jcube/ui/src/resources/scss/app.scss',
+        'vendor/jcube/ui/src/Resources/scss/bootstrap.scss',
+        'vendor/jcube/ui/src/Resources/scss/icons.scss',
+        'vendor/jcube/ui/src/Resources/scss/app.scss',
 
         'vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.css',
         'vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.js',
 
-        'vendor/jcube/ui/src/resources/js/ui.js',
-        'vendor/jcube/ui/src/resources/js/plugins/lord-icon-2.1.0.js',
+        'vendor/jcube/ui/src/Resources/js/ui.js',
+        'vendor/jcube/ui/src/Resources/js/plugins/lord-icon-2.1.0.js',
     ],
     build: {
         rollupOptions: {
