@@ -88,21 +88,31 @@ function menuActive($routeName, $type = null, $param = null)
 
 function createMenuItem($id, $parentId, $name, $icon, $link = null, $active = null, $access = null)
 {
+    $linkType = $link ? 'link' : 'title';
+    $linkName = is_array($link) ? $link[0] : $link;
+    $linkActive = $active ?: $linkName;
+
+    $linkStructure = [
+        'type' => $linkType,
+        'name' => $linkName,
+        'active' => $linkActive,
+        'open' => $linkActive,
+    ];
+
+    if (is_array($link) && count($link) > 1) {
+        $linkStructure['params'] = array_slice($link, 1);
+    }
+
     $menuItem = [
         'id' => $id,
         'parent_id' => $parentId,
         'name' => $name,
-        'link' => array_filter([
-            'type' => $link ? 'link' : 'title',
-            'name' => $link,
-            'active' => $active ?: $link,
-            'open' => $active ?: $link,
-        ]),
         'icon' => $icon,
+        'link' => array_filter($linkStructure), // Убираем пустые поля
     ];
 
     if ($access !== null) {
-        $menuItem['access'] = strpos($access, ':') === 0 ? $name.$access : $access;
+        $menuItem['access'] = strpos($access, ':') === 0 ? $name . $access : $access;
     }
 
     return $menuItem;
