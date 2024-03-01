@@ -8,6 +8,7 @@ export default {
         'vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.css',
         'vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.js',
 
+        'vendor/jcube/ui/src/Resources/js/notify.js',
         'vendor/jcube/ui/src/Resources/js/ui.js',
         'vendor/jcube/ui/src/Resources/js/plugins/lord-icon-2.1.0.js',
     ],

@@ -21,5 +21,6 @@
 @yield('body')
 
 @include('ui::layouts.part.foot')
+
 </body>
 </html>

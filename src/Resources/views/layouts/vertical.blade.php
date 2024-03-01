@@ -16,4 +16,6 @@
             </div>
         </div>
     </div>
+    <x-confirmation-modal/>
+    <x-notify/>
 @endsection

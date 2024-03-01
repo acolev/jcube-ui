@@ -2,4 +2,6 @@
 
 @section('body')
     @yield('content')
+    <x-confirmation-modal/>
+    <x-notify/>
 @endsection

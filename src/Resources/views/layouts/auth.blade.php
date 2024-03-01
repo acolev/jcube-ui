@@ -43,4 +43,6 @@
             </div>
         </footer>
     </div>
+    <x-confirmation-modal/>
+    <x-notify/>
 @endsection
