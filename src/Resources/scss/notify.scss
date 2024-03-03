@@ -1,9 +1,9 @@
-:root {
-    --hue: 223;
-    --bg: hsl(var(--hue), 10%, 90%);
-    --fg: hsl(var(--hue), 10%, 10%);
-    --transDur: 0.15s;
-}
+// Define variables
+$hue: 223;
+$bg: hsl($hue, 10%, 90%);
+$fg: hsl($hue, 10%, 10%);
+$transDur: 0.15s;
+
 .notification {
     padding-bottom: 0.75em;
     position: fixed;
@@ -11,170 +11,165 @@
     right: 1.5em;
     width: 18.75em;
     max-width: calc(100% - 3em);
-    transition: transform 0.15s ease-out;
+    transition: transform $transDur ease-out;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
     z-index: 9999;
     font-size: 16px;
-}
 
-.notification__box,
-.notification__content,
-.notification__btns {
-    display: flex;
-}
-
-.notification__box,
-.notification__content {
-    align-items: center;
-}
-
-.notification__box {
-    animation: flyIn 0.3s ease-out;
-    background-color: hsl(0, 0%, 100%);
-    border-radius: 0.75em;
-    box-shadow: 0 0.5em 1em hsla(var(--hue), 10%, 10%, 0.1);
-    height: 4em;
-    transition: background-color var(--transDur),
-    color var(--transDur);
-}
-
-.notification--out .notification__box {
-    animation: flyOut 0.3s ease-out forwards;
-}
-
-.notification__content {
-    padding: 0.375em 1em;
-    width: 100%;
-    height: 100%;
-}
-
-.notification__icon {
-    flex-shrink: 0;
-    margin-right: 0.75em;
-    width: 2em;
-    height: 2em;
-}
-
-.notification__icon-svg {
-    width: 100%;
-    height: auto;
-}
-
-.notification__text {
-    line-height: 1.333;
-}
-
-.notification__text-title {
-    font-size: 0.75em;
-    font-weight: bold;
-}
-
-.notification__text-subtitle {
-    font-size: 0.6em;
-    opacity: 0.75;
-}
-
-.notification__btns:has(*) {
-    box-shadow: -1px 0 0 hsla(var(--hue), 10%, 10%, 0.15);
-    flex-direction: column;
-    flex-shrink: 0;
-    min-width: 4em;
-    height: 100%;
-    transition: box-shadow var(--transDur);
-}
-
-.notification__btn {
-    background-color: transparent;
-    box-shadow: 0 0 0 hsla(var(--hue), 10%, 10%, 0.5) inset;
-    font-size: 0.6em;
-    line-height: 1;
-    font-weight: 500;
-    height: 100%;
-    padding: 0 0.5rem;
-    transition: background-color var(--transDur),
-    color var(--transDur);
-    -webkit-appearance: none;
-    appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    border: 0;
-}
-
-.notification__btn-text {
-    display: inline-block;
-    pointer-events: none;
-}
-
-.notification__btn:first-of-type {
-    border-radius: 0 0.75rem 0 0;
-}
-
-.notification__btn:last-of-type {
-    border-radius: 0 0 0.75rem 0;
-}
-
-.notification__btn:only-child {
-    border-radius: 0 0.75rem 0.75rem 0;
-}
-
-.notification__btn + .notification__btn {
-    box-shadow: 0 -1px 0 hsla(var(--hue), 10%, 10%, 0.15);
-    font-weight: 400;
-}
-
-.notification__btn:active,
-.notification__btn:focus {
-    background-color: hsl(var(--hue), 10%, 95%);
-}
-
-.notification__btn:focus {
-    outline: transparent;
-}
-
-@supports selector(:focus-visible) {
-    .notification__btn:focus {
-        background-color: transparent;
+    &__box,
+    &__content,
+    &__btns {
+        display: flex;
     }
 
-    .notification__btn:focus-visible,
-    .notification__btn:active {
-        background-color: hsl(var(--hue), 10%, 95%);
+    &__box,
+    &__content {
+        align-items: center;
+    }
+
+    &__box {
+        animation: flyIn 0.3s ease-out;
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 0.75em;
+        box-shadow: 0 0.5em 1em hsla($hue, 10%, 10%, 0.1);
+        height: 4em;
+        transition: background-color $transDur, color $transDur;
+    }
+
+    &--out &__box {
+        animation: flyOut 0.3s ease-out forwards;
+    }
+
+    &__content {
+        padding: 0.375em 1em;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        margin-right: 0.75em;
+        width: 2em;
+        height: 2em;
+    }
+
+    &__icon-svg {
+        width: 100%;
+        height: auto;
+    }
+
+    &__text {
+        line-height: 1.333;
+    }
+
+    &__text-title {
+        font-size: 0.75em;
+        font-weight: bold;
+    }
+
+    &__text-subtitle {
+        font-size: 0.6em;
+        opacity: 0.75;
+    }
+
+    &__btns:has(*) {
+        box-shadow: -1px 0 0 hsla($hue, 10%, 10%, 0.15);
+        flex-direction: column;
+        flex-shrink: 0;
+        min-width: 4em;
+        height: 100%;
+        transition: box-shadow $transDur;
+    }
+
+    &__btn {
+        background-color: transparent;
+        box-shadow: 0 0 0 hsla($hue, 10%, 10%, 0.5) inset;
+        font-size: 0.6em;
+        line-height: 1;
+        font-weight: 500;
+        height: 100%;
+        padding: 0 0.5rem;
+        transition: background-color $transDur, color $transDur;
+        -webkit-appearance: none;
+        appearance: none;
+        -webkit-tap-highlight-color: transparent;
+        border: 0;
+
+        &:first-of-type {
+            border-radius: 0 0.75rem 0 0;
+        }
+
+        &:last-of-type {
+            border-radius: 0 0 0.75rem 0;
+        }
+
+        &:only-child {
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+
+        & + & {
+            box-shadow: 0 -1px 0 hsla($hue, 10%, 10%, 0.15);
+            font-weight: 400;
+        }
+
+        &:active,
+        &:focus {
+            background-color: hsl($hue, 10%, 95%);
+        }
+
+        &:focus {
+            outline: transparent;
+        }
+    }
+
+    @supports selector(:focus-visible) {
+        &__btn:focus {
+            background-color: transparent;
+        }
+
+        &__btn:focus-visible,
+        &__btn:active {
+            background-color: hsl($hue, 10%, 95%);
+        }
     }
 }
 
 /* Dark theme */
-@media (prefers-color-scheme: dark) {
+[data-bs-theme="dark"] {
     :root {
-        --bg: hsl(var(--hue), 10%, 10%);
-        --fg: hsl(var(--hue), 10%, 90%);
+        --bg: hsl($hue, 10%, 10%);
+        --fg: hsl($hue, 10%, 90%);
     }
 
-    .notification__box {
-        background-color: hsl(var(--hue), 10%, 30%);
-    }
-
-    .notification__btns {
-        box-shadow: -1px 0 0 hsla(var(--hue), 10%, 90%, 0.15);
-    }
-
-    .notification__btn + .notification__btn {
-        box-shadow: 0 -1px 0 hsla(var(--hue), 10%, 90%, 0.15);
-    }
-
-    .notification__btn:active,
-    .notification__btn:focus {
-        background-color: hsl(var(--hue), 10%, 35%);
-    }
-
-    @supports selector(:focus-visible) {
-        .notification__btn:focus {
-            background-color: transparent;
+    .notification {
+        &__box {
+            background-color: hsl($hue, 10%, 30%);
         }
 
-        .notification__btn:focus-visible,
-        .notification__btn:active {
-            background-color: hsl(var(--hue), 10%, 35%);
+        &__btns {
+            box-shadow: -1px 0 0 hsla($hue, 10%, 90%, 0.15);
+        }
+
+        &__btn + &__btn {
+            box-shadow: 0 -1px 0 hsla($hue, 10%, 90%, 0.15);
+        }
+
+        &__btn:active,
+        &__btn:focus {
+            background-color: hsl($hue, 10%, 35%);
+        }
+
+        @supports selector(:focus-visible) {
+            &__btn:focus {
+                background-color: transparent;
+            }
+
+            &__btn:focus-visible,
+            &__btn:active {
+                background-color: hsl($hue, 10%, 35%);
+            }
         }
     }
 }
