@@ -42,19 +42,29 @@
     @vite('vendor/jcube/ui/src/Resources/js/notify.js')
 @endpushonce
 
+
+
 @pushonce('script')
     @if(session()->has('notify'))
-    <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            @foreach(@session('notify') as $msg)
-            notify.push({
-                icon: "{{ $msg[0] }}",
-                title: "{{ __($msg[1]) }}",
-                subtitle: "{{ __($msg[2]) }}",
-                time: 5000
-            })
-            @endforeach
-        });
-    </script>
+        <script>
+            function test() {
+                console.log(1)
+            }
+            window.addEventListener("DOMContentLoaded", () => {
+                @foreach(@session('notify') as $msg)
+                @if(gettype($msg) === 'object')
+                    notify.push(@json($msg, 1));
+                @else
+                    notify.push({
+                        icon: "{{ $msg[0] }}",
+                        title: "{{ __($msg[1]) }}",
+                        @isset($msg[2]) subtitle: "{{ __($msg[2]) }}", @endisset
+                            @isset($msg[3]) actions: @json($msg[3]), @endisset
+                        time: 5000,
+                    });
+                @endif
+                @endforeach
+            });
+        </script>
     @endif
 @endpushonce
