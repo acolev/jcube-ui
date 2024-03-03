@@ -118,7 +118,7 @@ function createMenuItem($id, $parentId, $name, $icon, $link = null, $active = nu
     return $menuItem;
 }
 
-function createNotify($icon = 'message', $title = 'Message', $subtitle = null, $time = null)
+function createNotify($icon = 'message', $title = 'Message', $subtitle = null, $time = 5000)
 {
     $obj = (object)['icon' => $icon, 'title' => $title];
     if ($subtitle) $obj->subtitle = $subtitle;
