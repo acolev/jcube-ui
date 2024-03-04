@@ -27,7 +27,7 @@
         (function () {
             const theme = localStorage.getItem('data-topbar');
             const isDarkTheme = theme === "dark";
-            console.log(theme)
+
             tinymce.init({
                 skin: isDarkTheme ? "oxide-dark" : undefined,
                 content_css: isDarkTheme ? "dark" : undefined,
