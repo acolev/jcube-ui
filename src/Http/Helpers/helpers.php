@@ -136,8 +136,10 @@ function notifyActions($actions)
     echo $json;
 }
 
-function generateBreadcrumbs($breadcrumbs) {
+function generateBreadcrumbs($breadcrumbs)
+{
     $html = '<nav aria-label="breadcrumb"><ol class="breadcrumb m-0">';
+    $html .= '<li class="breadcrumb-item"><a href="' . route('admin.dashboard') . '"><i class="mdi mdi-home"></i></a></li>';
     $count = count($breadcrumbs);
     foreach ($breadcrumbs as $index => $crumb) {
         if ($index === $count - 1) {
