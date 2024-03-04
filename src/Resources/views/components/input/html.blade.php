@@ -20,7 +20,7 @@
 <textarea class="tinymce" name="{{ $name }}" id="{{ $id }}">@php echo $value @endphp</textarea>
 
 @pushonce('script-lib')
-    <script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-webcomponent@2/dist/tinymce-webcomponent.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js"></script>
 @endpushonce
 @push('script')
     <script>
