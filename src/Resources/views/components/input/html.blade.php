@@ -25,11 +25,12 @@
 @push('script')
     <script>
         (function () {
-            const theme = document.documentElement.getAttribute("data-bs-theme");
+            const theme = localStorage.getItem('data-topbar');
             const isDarkTheme = theme === "dark";
+            console.log(theme)
             tinymce.init({
-                skin: isDarkTheme ? "oxide-dark" : "",
-                content_css: isDarkTheme ? "dark" : "",
+                skin: isDarkTheme ? "oxide-dark" : undefined,
+                content_css: isDarkTheme ? "dark" : undefined,
                 selector: '#{{ $id }}',
                 statusbar: false,
                 menubar: @json($menubar),
