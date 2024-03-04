@@ -47,24 +47,47 @@
 @pushonce('script')
     @if(session()->has('notify'))
         <script>
-            function test() {
-                console.log(1)
-            }
             window.addEventListener("DOMContentLoaded", () => {
                 @foreach(@session('notify') as $msg)
                 @if(gettype($msg) === 'object')
-                    notify.push(@json($msg, 1));
+                notify.push({
+                    icon: "{{ $msg->icon }}",
+                    @isset($msg->title) title: "{{ __($msg->title) }}", @endisset
+                    @isset($msg->subtitle) subtitle: "{{ __($msg->subtitle) }}", @endisset
+                    @isset($msg->time) time: "{{ __($msg->time) }}", @endisset
+                    @isset($msg->actions)
+                    actions: {!! notifyActions($msg->actions) !!}
+                    @endisset
+                });
                 @else
-                    notify.push({
-                        icon: "{{ $msg[0] }}",
-                        title: "{{ __($msg[1]) }}",
-                        @isset($msg[2]) subtitle: "{{ __($msg[2]) }}", @endisset
-                            @isset($msg[3]) actions: @json($msg[3]), @endisset
-                        time: 5000,
-                    });
+                notify.push({
+                    icon: "{{ $msg[0] }}",
+                    title: "{{ __($msg[1]) }}",
+                    @isset($msg[2]) subtitle: "{{ __($msg[2]) }}", @endisset
+                        @isset($msg[3]) actions: @json($msg[3]), @endisset
+                    time: 5000,
+                });
                 @endif
                 @endforeach
             });
         </script>
+    @endif
+
+    @if ($errors->any())
+        @php
+            $collection = collect($errors->all());
+            $errors = $collection->unique();
+        @endphp
+
+        <script>
+            "use strict";
+            @foreach ($errors as $error)
+            notify.push({
+                icon: "error",
+                title: '{{ __($error) }}',
+            });
+            @endforeach
+        </script>
+
     @endif
 @endpushonce

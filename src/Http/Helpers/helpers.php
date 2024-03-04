@@ -118,11 +118,20 @@ function createMenuItem($id, $parentId, $name, $icon, $link = null, $active = nu
     return $menuItem;
 }
 
-function createNotify($icon = 'message', $title = 'Message', $subtitle = null, $time = 5000)
+function createNotify($icon = 'message', $title = null, $subtitle = null, $actions = null, $time = 5000)
 {
-    $obj = (object)['icon' => $icon, 'title' => $title];
+    $obj = (object)['icon' => $icon,];
+    if ($title) $obj->title = $title;
     if ($subtitle) $obj->subtitle = $subtitle;
+    if ($actions) $obj->actions = $actions;
     if ($time) $obj->time = $time;
 
     return $obj;
+}
+
+function notifyActions($actions)
+{
+    $json = json_encode($actions);
+    $json = preg_replace('/"cb":"(.*)"/', '"cb":$1', $json);
+    echo $json;
 }

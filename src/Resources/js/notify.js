@@ -56,6 +56,16 @@ class NotificationManager {
         }, 300);
     }
 
+    clear() {
+        for (const notification of this.activeNotifications) {
+            this.close(notification);
+        }
+    }
+
+    sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     adjustNotificationPositions() {
         this.activeNotifications.forEach((notification, index) => {
             const translateY = 100 * index;
@@ -93,7 +103,7 @@ class NotificationItem {
                 }
                 buttonsContainer?.appendChild(button);
             });
-        }else{
+        } else {
             notificationElement.addEventListener('click', onClose);
         }
 
