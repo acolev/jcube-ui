@@ -79,16 +79,16 @@ class NotificationManager {
 }
 
 class NotificationItem {
-    constructor({id, icon, title, subtitle, actions, onClose}) {
+    constructor({id, icon, title, message, actions, onClose}) {
         this.id = id;
-        this.element = this.initialize({id, icon, title, subtitle, actions, onClose});
+        this.element = this.initialize({id, icon, title, message, actions, onClose});
     }
 
-    initialize({id, icon, title, subtitle, actions, onClose}) {
+    initialize({id, icon, title, message, actions, onClose}) {
         const notificationElement = document.createElement('div');
         notificationElement.id = id;
         notificationElement.className = 'notification';
-        notificationElement.innerHTML = this.createHTML({icon, title, subtitle, actions});
+        notificationElement.innerHTML = this.createHTML({icon, title, message, actions});
 
         const buttonsContainer = notificationElement.querySelector('.notification__btns');
         if (typeof actions !== 'undefined') {
@@ -111,7 +111,7 @@ class NotificationItem {
         return notificationElement;
     }
 
-    createHTML({icon, title, subtitle}) {
+    createHTML({icon, title, message}) {
         return `
             <div class="notification__box">
                 <div class="notification__content">
@@ -122,7 +122,7 @@ class NotificationItem {
                     </div>
                     <div class="notification__text">
                         <div class="notification__text-title">${title}</div>
-                        ${subtitle ? `<div class="notification__text-subtitle">${subtitle}</div>` : ''}
+                        ${message ? `<div class="notification__text-subtitle">${message}</div>` : ''}
                     </div>
                 </div>
                 <div class="notification__btns"></div>

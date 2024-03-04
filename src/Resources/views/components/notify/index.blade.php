@@ -53,18 +53,18 @@
                 notify.push({
                     icon: "{{ $msg->icon }}",
                     @isset($msg->title) title: "{{ __($msg->title) }}", @endisset
-                    @isset($msg->subtitle) subtitle: "{{ __($msg->subtitle) }}", @endisset
-                    @isset($msg->time) time: "{{ __($msg->time) }}", @endisset
-                    @isset($msg->actions)
+                        @isset($msg->message) message: "{{ __($msg->message) }}", @endisset
+                        @isset($msg->time) time: "{{ __($msg->time) }}", @endisset
+                        @isset($msg->actions)
                     actions: {!! notifyActions($msg->actions) !!}
-                    @endisset
+                        @endisset
                 });
                 @else
                 notify.push({
                     icon: "{{ $msg[0] }}",
                     title: "{{ __($msg[1]) }}",
-                    @isset($msg[2]) subtitle: "{{ __($msg[2]) }}", @endisset
-                        @isset($msg[3]) actions: @json($msg[3]), @endisset
+                    @isset($msg[2]) message: "{{ __($msg[2]) }}", @endisset
+                    @isset($msg[3]) actions: {!! notifyActions($msg[3]) !!}, @endisset
                     time: 5000,
                 });
                 @endif
@@ -78,13 +78,16 @@
             $collection = collect($errors->all());
             $errors = $collection->unique();
         @endphp
+        @dump($errors)
 
         <script>
             window.addEventListener("DOMContentLoaded", () => {
                 @foreach ($errors as $error)
                 notify.push({
                     icon: "error",
-                    title: '{{ __($error) }}',
+                    title: '{{ __("Oops!") }}',
+                    message: '{{ __($error) }}',
+                    time: 10000
                 });
                 @endforeach
             });
