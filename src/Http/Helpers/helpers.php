@@ -135,3 +135,18 @@ function notifyActions($actions)
     $json = preg_replace('/"cb":"(.*)"/', '"cb":$1', $json);
     echo $json;
 }
+
+function generateBreadcrumbs($breadcrumbs) {
+    $html = '<nav aria-label="breadcrumb"><ol class="breadcrumb m-0">';
+    $count = count($breadcrumbs);
+    foreach ($breadcrumbs as $index => $crumb) {
+        if ($index === $count - 1) {
+            $html .= '<li class="breadcrumb-item active" aria-current="page">' . htmlspecialchars($crumb['text']) . '</li>';
+        } else {
+            $html .= '<li class="breadcrumb-item"><a href="' . htmlspecialchars($crumb['url']) . '">' . htmlspecialchars($crumb['text']) . '</a></li>';
+        }
+    }
+    $html .= '</ol></nav>';
+
+    return $html;
+}
