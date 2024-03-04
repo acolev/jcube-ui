@@ -78,8 +78,6 @@
             $collection = collect($errors->all());
             $errors = $collection->unique();
         @endphp
-        @dump($errors)
-
         <script>
             window.addEventListener("DOMContentLoaded", () => {
                 @foreach ($errors as $error)
@@ -92,6 +90,5 @@
                 @endforeach
             });
         </script>
-
     @endif
 @endpushonce
