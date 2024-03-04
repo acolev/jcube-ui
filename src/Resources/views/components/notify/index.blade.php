@@ -80,13 +80,14 @@
         @endphp
 
         <script>
-            "use strict";
-            @foreach ($errors as $error)
-            notify.push({
-                icon: "error",
-                title: '{{ __($error) }}',
+            window.addEventListener("DOMContentLoaded", () => {
+                @foreach ($errors as $error)
+                notify.push({
+                    icon: "error",
+                    title: '{{ __($error) }}',
+                });
+                @endforeach
             });
-            @endforeach
         </script>
 
     @endif
