@@ -15,6 +15,7 @@ class Table extends Component
         public bool $header = true,
         public bool $footer = false,
         public bool $nowrap = true,
+        public bool $bordered = false,
         public bool $striped = false,
         public bool $stripedColumns = false,
         public bool $hover = false,

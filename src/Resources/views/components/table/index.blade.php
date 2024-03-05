@@ -6,6 +6,7 @@
           'table-striped-columns' => $stripedColumns,
           'table-dark' => $dark,
           'table-hover' => $hover,
+          'table-bordered' => $bordered,
           ])>
     @if($header)
       <thead @class(['table-light' => !$dark])>
