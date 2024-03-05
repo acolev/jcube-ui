@@ -9,6 +9,7 @@
           ])>
     @if($header)
       <thead @class(['table-light' => !$dark])>
+      @isset($headTop) {!! $headTop !!} @endif
       <tr>
         @foreach($fields as  $key=>$field)
           @if(isset(${"head_" . $field}))
@@ -20,6 +21,7 @@
           @endif
         @endforeach
       </tr>
+      @isset($headBottom) {!! $headBottom !!} @endif
       </thead>
     @endif
     <tbody>
@@ -27,6 +29,7 @@
     </tbody>
     @if($footer)
       <tfoot>
+      @isset($footTop) {!! $footTop !!} @endif
       <tr>
         @foreach($fields as $field)
           @if(isset(${"head_" . $field}))
@@ -36,6 +39,7 @@
           @endif
         @endforeach
       </tr>
+      @isset($footBottom) {!! $footBottom !!} @endif
       </tfoot>
     @endif
   </table>
