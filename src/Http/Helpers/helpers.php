@@ -86,7 +86,7 @@ function menuActive($routeName, $type = null, $param = null)
     }
 }
 
-function createMenuItem($id, $parentId, $name, $icon, $link = null, $active = null, $access = null)
+function createMenuItem($name, $icon, $link = null, $active = null, $access = null, $children = null)
 {
     $linkType = $link ? 'link' : 'title';
     $linkName = is_array($link) ? $link[0] : $link;
@@ -104,8 +104,6 @@ function createMenuItem($id, $parentId, $name, $icon, $link = null, $active = nu
     }
 
     $menuItem = [
-        'id' => $id,
-        'parent_id' => $parentId,
         'name' => $name,
         'icon' => $icon,
         'link' => array_filter($linkStructure), // Убираем пустые поля
@@ -113,6 +111,9 @@ function createMenuItem($id, $parentId, $name, $icon, $link = null, $active = nu
 
     if ($access !== null) {
         $menuItem['access'] = strpos($access, ':') === 0 ? $name . $access : $access;
+    }
+    if ($children !== null) {
+        $menuItem['children'] = $children;
     }
 
     return $menuItem;
