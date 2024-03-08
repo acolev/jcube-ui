@@ -30,7 +30,7 @@ class jCubeUIServiceProvider extends ServiceProvider
 
     protected function registerLoads()
     {
-        $this->loadMigrationsFrom(dirname(dirname(__DIR__)) . '/database/migrations');
+        $this->loadMigrationsFrom(dirname(__DIR__) . '/Database/Migrations');
         $this->loadViewsFrom(dirname(__DIR__) . '/Resources/views', 'ui');
     }
 
