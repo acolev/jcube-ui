@@ -86,7 +86,7 @@ function menuActive($routeName, $type = null, $param = null)
     }
 }
 
-function createMenuItem($name, $icon, $link = null, $active = null, $access = null, $children = null)
+function createMenuItem($name = null, $icon = null, $link = null, $active = null, $access = null, $children = null)
 {
     $linkType = $link ? 'link' : 'title';
     $linkName = is_array($link) ? $link[0] : $link;
