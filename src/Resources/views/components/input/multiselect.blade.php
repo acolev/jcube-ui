@@ -24,28 +24,29 @@
          :variants="$variants" {{ $attributes }} />
 
 @pushonce('style-lib')
-  <link rel="stylesheet" type="text/css" href="{{ asset('vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.css') }}"/>
+  @vite('vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.css')
 @endpushonce
 
 @pushonce('script-lib')
-  <script src="{{ asset('vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.js') }}"></script>
+  @vite('vendor/jcube/ui/src/Resources/js/libs/multi.js/multi.min.js')
 @endpushonce
 
 @push('script')
   <script>
-    function init_multi_{{ $id }} () {
-      multi(document.getElementById("{{ $id }}"), {
-        enable_search: @json($search),
-        search_placeholder: @json($search_placeholder),
-        non_selected_header: @json($non_selected_header),
-        selected_header: @json($selected_header),
-        limit_reached: function () {
-          console.log(1)
-        },
-        hide_empty_groups: false,
-        limit: @json($limit)
-      });
-    }
-    init_multi_{{ $id }}();
+      function init_multi_{{ $id }} () {
+          multi(document.getElementById("{{ $id }}"), {
+              enable_search: @json($search),
+              search_placeholder: @json($search_placeholder),
+              non_selected_header: @json($non_selected_header),
+              selected_header: @json($selected_header),
+              limit_reached: function () {
+                  console.log(1)
+              },
+              hide_empty_groups: false,
+              limit: @json($limit)
+          });
+      }
+
+      init_multi_{{ $id }}();
   </script>
 @endpush
